@@ -11,9 +11,9 @@ from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
 try:
-    transport = TSocket.TSocket('localhost', 12345)
-    transport = TTransport.TBufferedTransport(transport)
-    protocol = TBinaryProtocol.TBinaryProtocol(transport)
+    socket = TSocket.TSocket('localhost', 12345)
+    transport = TTransport.TBufferedTransport(socket)
+    protocol = TBinaryProtocol.TBinaryProtocol(socket)
     client = HelloService.Client(protocol)
     transport.open()
     print client.hello("pyWaw")
